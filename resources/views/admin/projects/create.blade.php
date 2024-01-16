@@ -15,6 +15,18 @@
                             {{ $message }}
                         </div>
                     @enderror
+                    <label for="type_id">Type:</label>
+                    <select id="type_id" name="type_id" class="mb-3 form-control @error('type_id') is-invalid @enderror"
+                        required>
+                        @foreach ($types as $type)
+                            <option value="{{ $type->name }}"> {{ $type->name }}</option>
+                        @endforeach
+                    </select>
+                    @error('type_id')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                     <label for="image">Image:</label>
                     <input id="image" value="{{ old('image') }}" type="file" name="image"
                         class="mb-3 form-control @error('image') is-invalid @enderror" required>
