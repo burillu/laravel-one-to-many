@@ -19,7 +19,7 @@
                     <select id="type_id" name="type_id" class="mb-3 form-control @error('type_id') is-invalid @enderror"
                         required>
                         @foreach ($types as $type)
-                            <option value="{{ $type->name }}"> {{ $type->name }}</option>
+                            <option value="{{ $type->id }}"> {{ $type->name }}</option>
                         @endforeach
                     </select>
                     @error('type_id')
@@ -30,12 +30,13 @@
                     <label for="image">Image:</label>
                     <input id="image" value="{{ old('image') }}" type="file" name="image"
                         class="mb-3 form-control @error('image') is-invalid @enderror" required>
-                    <img src="https://placehold.jp/250x180.png" id="imagePreview" alt="placeholderImg">
+
                     @error('image')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
                     @enderror
+                    <img src="https://placehold.jp/250x180.png" id="imagePreview" alt="placeholderImg"> <br>
                     <label for="body">Body:</label>
                     <textarea id="body" type="text" name="body" class="mb-3 form-control @error('body') is-invalid @enderror"></textarea>
                     @error('body')
