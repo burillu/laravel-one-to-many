@@ -29,7 +29,7 @@
                     @enderror
                     <label for="image">Image:</label>
                     <input id="image" value="{{ old('image') }}" type="file" name="image"
-                        class="mb-3 form-control @error('image') is-invalid @enderror" required>
+                        class="mb-3 form-control @error('image') is-invalid @enderror">
 
                     @error('image')
                         <div class="invalid-feedback">

@@ -20,9 +20,9 @@
 
                             <td><button class="btn btn-primary"> <a href="{{ route('admin.types.show', $type->slug) }}">
                                         <i class="fa-sharp fa-regular fa-eye text-white"></i></a></button><button
-                                    class="btn btn-warning"> <a href="{{ route('admin.types.edit', $type->id) }}"> <i
+                                    class="btn btn-warning"> <a href="{{ route('admin.types.edit', $type->slug) }}"> <i
                                             class="fa-regular fa-pen-to-square text-white"></i></a></button><button
-                                    class="btn btn-danger"> <a href="{{ route('admin.types.destroy', $type->id) }}">
+                                    class="btn btn-danger"> <a href="{{ route('admin.types.destroy', $type->slug) }}">
                                         <i class="fa-regular fa-trash-can text-white"></i></a></button> </td>
                         </tr>
                     @endforeach

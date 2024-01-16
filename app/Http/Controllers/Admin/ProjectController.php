@@ -65,7 +65,8 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         //
-        return view("admin.projects.edit", compact("project"));
+        $types = Type::all();
+        return view("admin.projects.edit", compact("project", "types"));
     }
 
     /**
@@ -77,8 +78,12 @@ class ProjectController extends Controller
         $form_data = $request->validated();
         $form_data["user_id"] = auth()->id();
         $form_data["slug"] = Str::slug($form_data["title"], "-");
+        if ($request->hasFile('image')) {
+            $path = Storage::put('images', $request->image);
+            $form_data['image'] = $path;
+        }
         $project->update($form_data);
-        return to_route("admin.projects.show", $project->id);
+        return to_route("admin.projects.show", $project->slug);
     }
 
     /**
