@@ -6,11 +6,15 @@
             <div class="row mb-5">
                 <div class="col-12 col-md-6">
                     <img src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}">
+                    <div class="text-secondary">
+                        <h4>Type :{{ $project->type?->name }}</h4>
+                    </div>
                 </div>
                 <div class="col-12 col-md-6">
                     <pre class="mb-5">
                         {{ $project->body }}
                     </pre>
+
                     <div class="d-flex gap-2">
                         <button class="btn btn-primary"> <a href="{{ route('admin.projects.index') }}">
                                 <i class="fa-solid fa-arrow-left"></i></a></button>
