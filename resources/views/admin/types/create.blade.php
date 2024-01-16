@@ -3,34 +3,19 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-8">
-                <h2 class="text-center"> Add new Project:</h2>
-                <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
+                <h2 class="text-center"> Add new Type:</h2>
+                <form action="{{ route('admin.types.store') }}" method="POST">
                     {{-- token --}}
                     @csrf
-                    <label for="title">Title:</label>
-                    <input id="title" value="{{ old('title') }}" type="text" name="title"
-                        class="mb-3 form-control @error('title') is-invalid @enderror" required>
-                    @error('title')
+                    <label for="name">Name:</label>
+                    <input id="name" value="{{ old('name') }}" type="text" name="name"
+                        class="mb-3 form-control @error('name') is-invalid @enderror" required>
+                    @error('name')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
                     @enderror
-                    <label for="image">Image:</label>
-                    <input id="image" value="{{ old('image') }}" type="file" name="image"
-                        class="mb-3 form-control @error('image') is-invalid @enderror" required>
-                    <img src="https://placehold.jp/250x180.png" id="imagePreview" alt="placeholderImg">
-                    @error('image')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                    <label for="body">Body:</label>
-                    <textarea id="body" type="text" name="body" class="mb-3 form-control @error('body') is-invalid @enderror"></textarea>
-                    @error('body')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
+
 
 
                     <button type="submit" class="btn btn-success"><i class="fa-solid fa-plus"></i></button>

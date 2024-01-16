@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateTypeRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class UpdateTypeRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +24,7 @@ class UpdateTypeRequest extends FormRequest
     {
         return [
             //
+            "name" => ['required', 'min:3', 'max:200', Rule::unique('types')->ignore($this->type)],
         ];
     }
 }

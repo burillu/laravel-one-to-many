@@ -11,7 +11,7 @@ class StoreTypeRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +23,8 @@ class StoreTypeRequest extends FormRequest
     {
         return [
             //
+            "name" => ['required', 'min:3', 'max:200', 'unique:types'],
+
         ];
     }
 }
